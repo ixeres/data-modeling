@@ -10,17 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419145653) do
+ActiveRecord::Schema.define(version: 20170419151049) do
 
-  create_table "ingredients", force: :cascade do |t|
-    t.integer "ingredient_id"
-    t.string   "ingredient"
+  create_table "calendars", force: :cascade do |t|
+    t.integer  "doctor_id"
+    t.integer  "patient_id"
+    t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "recipes", force: :cascade do |t|
-    t.string   "ingredient"
+  create_table "doctors", force: :cascade do |t|
+    t.integer  "doctor_id"
+    t.string   "name"
+    t.string   "discipline"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.integer  "patient_id"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
